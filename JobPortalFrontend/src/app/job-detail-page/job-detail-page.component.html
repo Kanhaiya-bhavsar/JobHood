@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<ng-container *ngIf="job; else loading">
+    <mat-card class="job-detail-card">
+      <img mat-card-image [src]="job.companyLogoUrl" alt="Company Logo" class="company-logo" />
+  
+      <mat-card-content>
+        <h1>{{ job.jobTitle }}</h1>
+        <p><strong>Company:</strong> {{ job.jobCompanyName }}</p>
+        <p><strong>Location:</strong> {{ job.location }}</p>
+        <p><strong>Experience:</strong> {{ job.experience }}</p>
+        <p><strong>CTC:</strong> {{ job.ctc }}</p>
+        <p><strong>Qualification:</strong> {{ job.qualification }}</p>
+        <p><strong>Job Type:</strong> {{ job.jobType }}</p>
+        <p><strong>Apply Type:</strong> {{ job.applyType }}</p>
+        <p><strong>Domain:</strong> {{ job.domain }}</p>
+        <p><strong>Added:</strong> {{ job.addedDate | date }}</p>
+        <p><strong>Expires:</strong> {{ job.expireDate | date }}</p>
+  
+        <h3>Job Description</h3>
+        <p>{{ job.jobDescription }}</p>
+  
+        <h3>Company Description</h3>
+        <p>{{ job.companyDescription }}</p>
+  
+        <h3>Roles & Responsibilities</h3>
+        <p>{{ job.rolesAndResponsibility }}</p>
+  
+        <h3>Education & Skills</h3>
+        <p>{{ job.educationAndSkills }}</p>
+      </mat-card-content>
+  
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="applyNow()">
+          Apply Now
+        </button>
+        <button mat-button routerLink="/">Back</button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+  
+  <ng-template #loading>
+    <p>Loading job details...</p>
+  </ng-template>
+  

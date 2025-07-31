@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <span style="flex: 1">JobHood</span>
+
+  <button mat-button routerLink="/">Home</button>
+  <button mat-button routerLink="/about">About</button>
+
+  <!-- Admin Panel only for admins -->
+  <ng-container *ngIf="isLoggedIn && userRole === 'Admin'">
+    <button mat-button [routerLink]="['/adminPanel', 0]">Admin Panel</button>
+  </ng-container>
+
+  <!-- Logged-in user info -->
+  <ng-container *ngIf="isLoggedIn; else showLogin">
+    <div class="user-info">
+         <button mat-button (click)="logout()">Logout</button>
+      <span>Hi, {{ userName }}</span>
+   
+    </div>
+  </ng-container>
+  
+
+  <!-- Login button if not logged in -->
+  <ng-template #showLogin>
+    <button mat-button routerLink="/login">Login</button>
+  </ng-template>
+</mat-toolbar>

@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<!-- Job Cards -->
+<div class="job-cards-container">
+    <mat-card *ngFor="let job of jobs" class="job-card" >
+      <!-- Company Logo -->
+      <img mat-card-image [src]="job.companyLogoUrl" alt="Company Logo" class="company-logo" />
+  
+      <!-- Job Info -->
+      <mat-card-content >
+        <h2>{{ job.jobTitle }}</h2>
+        <p><strong>Company:</strong> {{ job.jobCompanyName }}</p>
+        <p><strong>Experience:</strong> {{ job.experience }}</p>
+        <p><strong>CTC:</strong> {{ job.ctc }}</p>
+        <p><strong>Location:</strong> {{ job.location }}</p>
+        <p><strong>Qualification:</strong> {{ job.qualification }}</p>
+      </mat-card-content>
+  
+      <!-- Detail Button -->
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="goToJobDetail(job.jobId)">
+          Apply/Detail
+        </button>
+
+        <ng-container *ngIf="userRole === 'Admin'">
+          <button mat-raised-button color="primary" (click)="goToAdmin(job.jobId)">
+            Edit
+          </button>
+        </ng-container>
+       
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  

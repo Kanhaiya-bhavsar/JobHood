@@ -1,0 +1,73 @@
+.form-card {
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 30px 40px;
+  background: linear-gradient(to bottom right, #ffffff, #eef3fd);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-radius: 18px;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-card:hover {
+  transform: scale(1.01);
+}
+
+.form-header {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #0d47a1;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+mat-form-field {
+  background-color: #fdfdfd;
+  border-radius: 6px;
+}
+
+.file-upload {
+  margin: 20px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #455a64;
+}
+
+.file-upload input[type="file"] {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+button[mat-raised-button] {
+  padding: 10px 26px;
+  font-weight: 600;
+  border-radius: 30px;
+  font-size: 16px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+  transition: transform 0.25s ease;
+}
+
+button[mat-raised-button]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(33, 150, 243, 0.35);
+}
+
+button[mat-button] {
+  color: #0d47a1;
+  font-weight: 600;
+}

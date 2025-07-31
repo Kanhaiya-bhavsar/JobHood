@@ -1,0 +1,469 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "JobPortal",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Auth/Register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/Login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Job": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Job"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "JobTitle": {
+                    "type": "string"
+                  },
+                  "Experience": {
+                    "type": "string"
+                  },
+                  "Ctc": {
+                    "type": "string"
+                  },
+                  "ApplyLink": {
+                    "type": "string"
+                  },
+                  "ApplyType": {
+                    "type": "string"
+                  },
+                  "Location": {
+                    "type": "string"
+                  },
+                  "Domain": {
+                    "type": "string"
+                  },
+                  "Qualification": {
+                    "type": "string"
+                  },
+                  "JobType": {
+                    "type": "string"
+                  },
+                  "JobCompanyName": {
+                    "type": "string"
+                  },
+                  "JobDescription": {
+                    "type": "string"
+                  },
+                  "CompanyDescription": {
+                    "type": "string"
+                  },
+                  "RolesAndResponsibility": {
+                    "type": "string"
+                  },
+                  "EducationAndSkills": {
+                    "type": "string"
+                  },
+                  "CompanyLogoUrl": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "AddedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ExpireDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              },
+              "encoding": {
+                "JobTitle": {
+                  "style": "form"
+                },
+                "Experience": {
+                  "style": "form"
+                },
+                "Ctc": {
+                  "style": "form"
+                },
+                "ApplyLink": {
+                  "style": "form"
+                },
+                "ApplyType": {
+                  "style": "form"
+                },
+                "Location": {
+                  "style": "form"
+                },
+                "Domain": {
+                  "style": "form"
+                },
+                "Qualification": {
+                  "style": "form"
+                },
+                "JobType": {
+                  "style": "form"
+                },
+                "JobCompanyName": {
+                  "style": "form"
+                },
+                "JobDescription": {
+                  "style": "form"
+                },
+                "CompanyDescription": {
+                  "style": "form"
+                },
+                "RolesAndResponsibility": {
+                  "style": "form"
+                },
+                "EducationAndSkills": {
+                  "style": "form"
+                },
+                "CompanyLogoUrl": {
+                  "style": "form"
+                },
+                "AddedDate": {
+                  "style": "form"
+                },
+                "ExpireDate": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Job/{id}": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Job"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Job"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "JobId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "JobTitle": {
+                    "type": "string"
+                  },
+                  "Experience": {
+                    "type": "string"
+                  },
+                  "Ctc": {
+                    "type": "string"
+                  },
+                  "ApplyLink": {
+                    "type": "string"
+                  },
+                  "ApplyType": {
+                    "type": "string"
+                  },
+                  "Location": {
+                    "type": "string"
+                  },
+                  "Domain": {
+                    "type": "string"
+                  },
+                  "Qualification": {
+                    "type": "string"
+                  },
+                  "JobType": {
+                    "type": "string"
+                  },
+                  "JobCompanyName": {
+                    "type": "string"
+                  },
+                  "JobDescription": {
+                    "type": "string"
+                  },
+                  "CompanyDescription": {
+                    "type": "string"
+                  },
+                  "RolesAndResponsibility": {
+                    "type": "string"
+                  },
+                  "EducationAndSkills": {
+                    "type": "string"
+                  },
+                  "CompanyLogoUrl": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "AddedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "ExpireDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              },
+              "encoding": {
+                "JobId": {
+                  "style": "form"
+                },
+                "JobTitle": {
+                  "style": "form"
+                },
+                "Experience": {
+                  "style": "form"
+                },
+                "Ctc": {
+                  "style": "form"
+                },
+                "ApplyLink": {
+                  "style": "form"
+                },
+                "ApplyType": {
+                  "style": "form"
+                },
+                "Location": {
+                  "style": "form"
+                },
+                "Domain": {
+                  "style": "form"
+                },
+                "Qualification": {
+                  "style": "form"
+                },
+                "JobType": {
+                  "style": "form"
+                },
+                "JobCompanyName": {
+                  "style": "form"
+                },
+                "JobDescription": {
+                  "style": "form"
+                },
+                "CompanyDescription": {
+                  "style": "form"
+                },
+                "RolesAndResponsibility": {
+                  "style": "form"
+                },
+                "EducationAndSkills": {
+                  "style": "form"
+                },
+                "CompanyLogoUrl": {
+                  "style": "form"
+                },
+                "AddedDate": {
+                  "style": "form"
+                },
+                "ExpireDate": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "LoginRequestDto": {
+        "required": [
+          "password",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string",
+            "format": "password"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterRequestDto": {
+        "required": [
+          "password",
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "username": {
+            "minLength": 1,
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "minLength": 1,
+            "type": "string",
+            "format": "password"
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Enter 'Bearer' followed by a space and the JWT token.\n\nExample: Bearer abc123",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

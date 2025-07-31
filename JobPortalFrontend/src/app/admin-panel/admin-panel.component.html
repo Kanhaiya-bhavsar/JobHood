@@ -1,0 +1,125 @@
+<app-navbar></app-navbar>
+<mat-card class="form-card">
+  <h2 class="form-header">Admin Panel – Job Form</h2>
+
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()">
+
+    <input type="hidden" formControlName="jobId" />
+
+    <!-- Text Inputs -->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Job Title</mat-label>
+      <input matInput formControlName="jobTitle" />
+      <mat-error *ngIf="f['jobTitle'].touched && f['jobTitle'].invalid">This field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Experience</mat-label>
+      <input matInput formControlName="experience" />
+      <mat-error *ngIf="f['experience'].touched && f['experience'].invalid">This field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>CTC</mat-label>
+      <input matInput formControlName="ctc" />
+      <mat-error *ngIf="f['ctc'].touched && f['ctc'].invalid">This field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Apply Link</mat-label>
+      <input matInput formControlName="applyLink" />
+      <mat-error *ngIf="f['applyLink'].touched && f['applyLink'].invalid">This field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Apply Type</mat-label>
+      <input matInput formControlName="applyType" />
+      <mat-error *ngIf="f['applyType'].touched && f['applyType'].invalid">This field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Location</mat-label>
+      <input matInput formControlName="location" />
+      <mat-error *ngIf="f['location'].touched && f['location'].invalid">This field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Domain</mat-label>
+      <input matInput formControlName="domain" />
+      <mat-error *ngIf="f['domain'].touched && f['domain'].invalid">This field is required</mat-error>
+    </mat-form-field>
+
+    <!-- Textarea Fields -->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Qualification</mat-label>
+      <textarea matInput formControlName="qualification" rows="3"></textarea>
+      <mat-error *ngIf="f['qualification'].touched && f['qualification'].invalid">This field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Job Type</mat-label>
+      <input matInput formControlName="jobType" />
+      <mat-error *ngIf="f['jobType'].touched && f['jobType'].invalid">This field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Company Name</mat-label>
+      <input matInput formControlName="jobCompanyName" />
+      <mat-error *ngIf="f['jobCompanyName'].touched && f['jobCompanyName'].invalid">This field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Job Description</mat-label>
+      <textarea matInput formControlName="jobDescription" rows="4"></textarea>
+      <mat-error *ngIf="f['jobDescription'].touched && f['jobDescription'].invalid">This field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Company Description</mat-label>
+      <textarea matInput formControlName="companyDescription" rows="3"></textarea>
+      <mat-error *ngIf="f['companyDescription'].touched && f['companyDescription'].invalid">This field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Roles & Responsibilities</mat-label>
+      <textarea matInput formControlName="rolesAndResponsibility" rows="3"></textarea>
+      <mat-error *ngIf="f['rolesAndResponsibility'].touched && f['rolesAndResponsibility'].invalid">This field is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Education & Skills</mat-label>
+      <textarea matInput formControlName="educationAndSkills" rows="3"></textarea>
+      <mat-error *ngIf="f['educationAndSkills'].touched && f['educationAndSkills'].invalid">This field is required</mat-error>
+    </mat-form-field>
+
+    <!-- Date Pickers -->
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Added Date</mat-label>
+      <input matInput [matDatepicker]="picker1" formControlName="addedDate" />
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Expire Date</mat-label>
+      <input matInput [matDatepicker]="picker2" formControlName="expireDate" />
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+    <!-- File Upload -->
+    <div class="file-upload">
+      <label for="fileInput">Company Logo:</label>
+      <input id="fileInput" type="file" (change)="onFileChange($event)" />
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-group">
+      <button mat-raised-button color="primary" type="submit">
+        {{ jobId === '0' ? 'Add Job' : 'Update Job' }}
+      </button>
+      <button *ngIf="jobId !== '0'" mat-raised-button color="warn" type="button" (click)="onDelete()">Delete</button>
+      <button mat-button routerLink="/">Back</button>
+    </div>
+  </form>
+</mat-card>
